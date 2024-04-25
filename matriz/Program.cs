@@ -5,15 +5,21 @@
     b.função sorteio matriz; ok
     c.função que le o numero linha e coluna da matriz;
 */
-int qtdLinhas, qtdColunas, operacao = 0, opcao = 0, opcaoSorteio = 0;
+int qtdLinhas = 0, qtdColunas = 0, operacao = 0, opcao = 0, opcaoSorteio = 0;
 
 void LerTamanho()
 {
-    Console.WriteLine("quantidade linhas:");
-    qtdLinhas = int.Parse(Console.ReadLine());
+    while (qtdLinhas <= 0)
+    {
+        Console.WriteLine("quantidade linhas maior que 0:");
+        qtdLinhas = int.Parse(Console.ReadLine());
+    }
 
-    Console.WriteLine("quantidade colunas:");
-    qtdColunas = int.Parse(Console.ReadLine());
+    while (qtdColunas <= 0)
+    {
+        Console.WriteLine("quantidade colunas maior que 0:");
+        qtdColunas = int.Parse(Console.ReadLine());
+    }
 }
 
 void PreencherMatriz(int opcao, float[,] matriz)
@@ -156,9 +162,9 @@ do
         Console.WriteLine("3 - multiplicação;");
         Console.WriteLine("4 - divisão;");
         opcao = int.Parse(Console.ReadLine());
-        
+
         CalcularMatriz(opcao, matriz1, matriz2, matriz3);
-        
+
         Console.WriteLine("Se deseja fazer outra operação digite 0;\nse não, digite outro número;");
         opcao = int.Parse(Console.ReadLine());
 
